@@ -1,0 +1,90 @@
+{
+  "name": "gmail automation",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9115e0c7-62be-4049-a74e-068338de620b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "sendTo": "suve5621@gmail.com",
+        "subject": "Test Mail from n8n",
+        "message": "Hello! This is a test email sent from n8n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "6b3ff525-b05c-4ae5-ac00-00ed642b453f",
+      "name": "Send a message",
+      "webhookId": "aaa528c2-89ac-4d81-8341-ac74f9744c3d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "3VPXybqmSuDPqTnX",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 14,
+              "triggerAtMinute": 5
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        368,
+        144
+      ],
+      "id": "bfc8dc43-34a3-4123-bf2b-d512ce7f7eeb",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1,
+    "availableInMCP": false
+  },
+  "versionId": "f50fd2be-5cae-4f36-8198-6af7c1afe58d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9033835867f01e17aec513cc37b047d6043d66cbff11ed3ec84feb35b4b501e4"
+  },
+  "nodeGroups": [],
+  "id": "HoBb69JY9cG2UBGb",
+  "tags": []
+}
